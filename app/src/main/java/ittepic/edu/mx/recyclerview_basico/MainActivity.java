@@ -9,23 +9,35 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> listaDatos;
-    RecyclerView recycler1;
+    ArrayList<Alumnos> listaalumnos;
+    RecyclerView recyclerAlumnos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recycler1 = (RecyclerView) findViewById(R.id.idRecycler);
-        recycler1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        listaDatos = new ArrayList<String>();
 
-        for (int i = 0; i <= 50; i++) {
+        listaalumnos=new ArrayList<>();
+        recyclerAlumnos=(RecyclerView) findViewById(R.id.idRecycler);
+        recyclerAlumnos.setLayoutManager(new LinearLayoutManager(this));
 
-            listaDatos.add(" Dato  numero "+i+" ");
-        }
-        Datos adapter=new Datos(listaDatos);
-        recycler1.setAdapter(adapter);
+        llenarAlumnos();
+
+        Adaptador_Alumnos adapter= new Adaptador_Alumnos(listaalumnos);
+        recyclerAlumnos.setAdapter(adapter);
+    }
+
+    private void llenarAlumnos(){
+
+        listaalumnos.add(new Alumnos("Jose Angel Montoya","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("Erika Lizbeth Martinez Bañuelos","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("Miguel Angel Lopez Ibarria","13400452"," IE",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("Brayan de Jesus Gutierrez Esparza","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("ARANDA PATRON NOMAR JAZIEL","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("VALDEZ LOPEZ HOLLIVER EDUARDO","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("RIVERA RAMIREZ DAVID","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("SILVA CAMACHO EDUARDO LUIS","13400452"," ISC",R.drawable.alumno));
+        listaalumnos.add(new Alumnos("TORRES CUETO JESUS MANUEL","13400452"," ISC",R.drawable.alumno));
     }
 }
